@@ -1,17 +1,22 @@
-rom twilio.rest import Client
+from twilio.rest import Client
+
+import os
+
+from twilio.rest import Client
+#from dotenv import load_dotenv
+# load_dotenv()
 
 
-# Your Account Sid and Auth Token from twilio.com/console
-# DANGER! This is insecure. See http://twil.io/secure
-account_sid = 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-auth_token = 'your_auth_token'
+account_sid = os.environ['TWILIO_ACCOUNT_SID']
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
+
 
 message = client.messages \
                 .create(
-                    body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-                    from_='+15017122661',
-                    to='+15558675310'
+                    body="NI WAKATI WA KUFTURU. FTURU SALAMA",
+                    from_='+14422540028',
+                    to='+254790497466'
                 )
 
 print(message.sid)
